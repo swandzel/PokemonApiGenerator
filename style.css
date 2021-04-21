@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+  background-color: #1864ab;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.generator {
+  display: flex;
+  flex-direction: column;
+  background-color: #ff2b2b;
+  color: white;
+  width: 500px;
+  height: 640px;
+  align-items: center;
+  border: white 5px solid;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.screen {
+  display: inline-flex;
+  background-color: black;
+  width: 450px;
+  margin: 20px;
+  border: white 5px solid;
+}
+.ability {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.ability-type {
+  margin-bottom: 10px;
+}
+
+.pokemon-img {
+  flex: 1;
+}
+
+button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+  background-color: white;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+#logo {
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.bigger {
+  font-size: 1rem;
+}
+
+.bigger-name {
+  font-size: 1.5rem;
+}
+
+.footer {
+  margin-top: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.ococho {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  min-width: 250px;
+  min-height: 50px;
+  line-height: 50px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  padding: 0 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  /* top: 50%;
+  left: 50%; */
+  height: 640px;
+  transform: translate(0, 0) scale(0);
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+  color: black;
+}
+
+.modal.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.modal-header {
+  padding: 15px 15px 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.modal-body {
+  padding: 0px 15px;
+  line-height: 1.6;
+  font-family: "Anton", sans-serif;
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+.modal-body p {
+  margin: 40px 0px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media only screen and (max-width: 500px) {
+  .ococho {
+    display: none;
+  }
+
+  .container {
+    margin-top: 0px;
+  }
+
+  .generator {
+    width: 100%;
+  }
+
+  .screen {
+    width: 100%;
+    margin: 20px 0px;
+    border: 0px;
+    border-top: white 5px solid;
+    border-bottom: white 5px solid;
+  }
+}

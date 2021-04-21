@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Pokemon Generator by swandzel" />
+    <title>Pokemon Generator by swandzel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- POKEDEX CONTAINER START -->
+    <div class="container">
+      <div class="generator">
+        <img src="pokemon.png" id="logo" alt="Pokemon Logo" />
+
+        <!-- POKEDEX SCREEN START -->
+        <div class="screen">
+          <img src="pokeball.png" class="pokemon-img" alt="Pokemon" />
+          <div class="ability">
+            <p>Ability:</p>
+            <p class="ability-type">Type</p>
+            <p>Attack:</p>
+            <p class="attack">Attack</p>
+            <p>Defense:</p>
+            <p class="defense">Defense</p>
+          </div>
+        </div>
+        <!-- POKEDEX SCREEN END -->
+
+        <!-- POKEDEX NAME & TYPE START -->
+        Pokémon name: <span class="pokemon-name bigger-name">Name</span> <br />
+        Pokémon type: <span class="pokemon-type bigger">Type</span> <br />
+        <!-- POKEDEX NAME & TYPE END -->
+
+        <!-- NUMBER GENERATOR START -->
+        <button class="generate" onClick="window.location.reload()">
+          Generate Random <br />
+          Pokémon
+        </button>
+        <!-- NUMBER GENERATOR END -->
+
+        <div class="footer">
+          <p>Gotta Catch 'Em All</p>
+          <p>by swandzel</p>
+        </div>
+        <!-- POKEDEX CONTAINER END -->
+
+        <!-- ABOUT THE PROJECT START -->
+        <div class="ococho" data-modal-target="#modal">O co tu chodzi?</div>
+        <div class="modal" id="modal">
+          <div class="modal-header">
+            <div class="title">O co tu chodzi?</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Aplikacja pobiera losowo wygenerowanego Pokemon’a z <a href=https://pokeapi.co/ target="_blank">PokeAPI</a> i wyświetla jego obrazek, nazwę, typ a także moce. Wszystkie dane Pokemon’a wygenerowane w Pokedex’ie pokazują się również w konsoli.</p>
+            <p>Generowanie nowego Pokemon’a (nowego ID) następuje po każdorazowym odświeżeniu strony, która jest dokonywana po naciśnięciu przycisku GENERATE RANDOM POKEMON.</p>
+
+            <p>Aplikacja jest mojego pomysłu i sam ją napisałem.</p>
+          </div>
+        </div>
+        <div id="overlay"></div>
+        <!-- ABOUT THE PROJECT END -->
+
+        <script src="script.js"></script>
+      </div>
+    </div>
+  </body>
+</html>
