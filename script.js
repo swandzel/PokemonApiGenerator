@@ -1,55 +1,34 @@
-// NUMBER GENERATOR FROM 1 TO 400
-
-function generatedNumber() {
-  let number = Math.floor(Math.random() * 399) + 1;
-  return number;
-}
-
-// ASSIGNING THE RESULT OF A FUNCTION TO THE VARIABLE
-
-let pokemonNumber = generatedNumber();
-
-// API ADDRESS WITH A NUMBER FROM A VARIABLE
+// RANDOM POKEMON GENERATOR
 
 const apiData = {
   url: "https://pokeapi.co/api/v2/",
   type: "pokemon",
-  id: pokemonNumber,
 };
 
-const apiUrl = `${apiData.url}${apiData.type}/${apiData.id}`;
+function getPokemon() {
+  let randomNumber = Math.floor(Math.random() * 399) + 1;
+  let apiUrl = `${apiData.url}${apiData.type}/${randomNumber}`;
 
-// DATA DOWNLOADED FROM API
+  fetch(apiUrl)
+    .then((data) => data.json())
+    .then((pokemon) => generateHtml(pokemon));
 
-fetch(apiUrl)
-  .then((data) => data.json())
-  .then((pokemon) => generateHtml(pokemon));
+  let pokemonName = document.querySelector(".pokemon-name");
+  let pokemonType = document.querySelector(".pokemon-type");
+  let abilityType = document.querySelector(".ability-type");
+  let attack = document.querySelector(".attack");
+  let defense = document.querySelector(".defense");
+  let img = document.querySelector(".pokemon-img");
 
-// ENTERING RESULTS ON THE PAGE
-
-let pokemonName = document.querySelector(".pokemon-name");
-let pokemonType = document.querySelector(".pokemon-type");
-let abilityType = document.querySelector(".ability-type");
-let attack = document.querySelector(".attack");
-let defense = document.querySelector(".defense");
-let img = document.querySelector(".pokemon-img");
-
-const generateHtml = (data) => {
-  pokemonName.textContent = data.name.toUpperCase();
-  pokemonType.textContent = data.types[0].type.name.toUpperCase();
-  abilityType.textContent = data.abilities[0].ability.name.toUpperCase();
-  img.src = data.sprites.front_default;
-  attack.textContent = data.stats[1].base_stat;
-  defense.textContent = data.stats[2].base_stat;
-
-  // PRINTING ALL POKEMON DATA TO THE CONSOLE TO ENSURE CORRECT RESULTS
-  console.log(`Pokemon number: ${data.id}
-  Pokemon name: ${data.name.toUpperCase()}
-  Pokemon type: ${data.types[0].type.name.toUpperCase()}
-  Pokemon ability: ${data.abilities[0].ability.name.toUpperCase()}
-  Pokemon attack: ${data.stats[1].base_stat}
-  Pokemon defense: ${data.stats[2].base_stat}`);
-};
+  const generateHtml = (data) => {
+    pokemonName.textContent = data.name.toUpperCase();
+    pokemonType.textContent = data.types[0].type.name.toUpperCase();
+    abilityType.textContent = data.abilities[0].ability.name.toUpperCase();
+    img.src = data.sprites.front_default;
+    attack.textContent = data.stats[1].base_stat;
+    defense.textContent = data.stats[2].base_stat;
+  };
+}
 
 // ABOUT PROJECT MODAL POP-UP
 const openModalButtons = document.querySelectorAll("[data-modal-target]");
